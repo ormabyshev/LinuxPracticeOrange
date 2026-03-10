@@ -98,13 +98,21 @@ _____
 
 
 Сгенерируем ключ:
+
 ![screenshot](./screenshots/Pasted%20image%2020260310094948.png)
+
 Подставим IP:
+
 ![screenshot](./screenshots/Pasted%20image%2020260310095415.png)
+
 Конфигурация Netplan (/etc/netplan/00-installer-config.yaml):
+
 ![screenshot](./screenshots/Pasted%20image%2020260310063213.png)
+
 Проверка IP - адресов после применения netplan:
+
 ![screenshot](./screenshots/Pasted%20image%2020260310063321.png)
+
 2.3. Настройка веб-сервера (Flask):
 	Установим flask: 
 
@@ -118,20 +126,25 @@ _____
 ![screenshot](./screenshots/Pasted%20image%2020260309065357.png)
 
 Проверим текущую директорию с помощью команды pwd и создадим файл orange_5000.py
+
 ![screenshot](./screenshots/Pasted%20image%2020260309065830.png)
 
 ![screenshot](./screenshots/Pasted%20image%2020260309074957.png)
+
 Проверим путь к файлу flask с помощью команды which flask: 
 
 ![screenshot](./screenshots/Pasted%20image%2020260309081201.png)
 
 Создадим systemd unit файл, который будет запускать сервер автоматически при старте системы:
+
 ![screenshot](./screenshots/Pasted%20image%2020260310064843.png)
+
 Включим и запустим:
 
 ![screenshot](./screenshots/Pasted%20image%2020260309081451.png)
 
 Результат:
+
 ![screenshot](./screenshots/Pasted%20image%2020260309091031.png)
 
 # Глава 3. Настройка Linux B (шлюз)
@@ -149,16 +162,22 @@ _____
 
 ![screenshot](./screenshots/Pasted%20image%2020260310022655.png)
 ![screenshot](./screenshots/Pasted%20image%2020260310023114.png)
+
 Внесенные изменения с помощью команды netplan apply:
+
 ![screenshot](./screenshots/Pasted%20image%2020260310065807.png)
 
 Посмотрим изменения через ip a:
+
 ![screenshot](./screenshots/Pasted%20image%2020260310024201.png)
+
 3.3. Настройка маршрутизации и файрвола:
 Включение IP Forwaarding:
+
 ![screenshot](./screenshots/Pasted%20image%2020260310024954.png)
 
 ![screenshot](./screenshots/Pasted%20image%2020260310025033.png)
+
 По умолчанию запрещаем весь  пересылаемый через сервер трафик:
 
 ![screenshot](./screenshots/Pasted%20image%2020260310025717.png)
@@ -168,12 +187,15 @@ _____
 ![screenshot](./screenshots/Pasted%20image%2020260310030145.png)
 
 Разрешим трафик между подсетями только для порта 5000 (весь остальной FORWARD будет дропаться по умолчанию)  
+
 ![screenshot](./screenshots/Pasted%20image%2020260310030631.png)
 
 Проверим внесенные правила с помощью iptables -L:
+
 ![screenshot](./screenshots/Pasted%20image%2020260310031008.png)
 
 Сохраним внесенные изменения:
+
 ![screenshot](./screenshots/Pasted%20image%2020260310032151.png)
 
 ![screenshot](./screenshots/Pasted%20image%2020260310032744.png)
@@ -189,44 +211,68 @@ _____
 	- Адаптер 2: Сетевой мост (для доступа)
 	
 Проверим текущие интерфейсы:
+
 ![screenshot](./screenshots/Pasted%20image%2020260310043722.png)
+
 Конфигурация Netplan (/etc/netplan/00-installer-config.yaml
+
 ![screenshot](./screenshots/Pasted%20image%2020260310050132.png)
+
 Проверка IP- адрессов:
+
 ![screenshot](./screenshots/Pasted%20image%2020260310070423.png)
 
 Установка curl:
+
 ![screenshot](./screenshots/Pasted%20image%2020260310044609.png)
 # Глава 5. Тестирование
 
 ## 5.1. Запуска tcpdump на шлюзе (Linux_B):
+
 ![screenshot](./screenshots/Pasted%20image%2020260310070638.png)
+
 ## 5.2. Отправка запросов с клиента Linux_C на сервер Linux_A
 С клиента (С) выполнены команды curl к серверу А:
 - GET:
+
 ![screenshot](./screenshots/Pasted%20image%2020260310070841.png)
 ![screenshot](./screenshots/Pasted%20image%2020260310070830.png)
+
  - POST:
+
 ![screenshot](./screenshots/Pasted%20image%2020260310071721.png)
 ![screenshot](./screenshots/Pasted%20image%2020260310071710.png)
+
  - PUT:
+
 ![screenshot](./screenshots/Pasted%20image%2020260310071928.png)
 ![screenshot](./screenshots/Pasted%20image%2020260310071919.png)
+
 ## 5.4. Проверка блокировки другого трафика
 Попытка выполнить ping с клиента C на сервер А была неуспешной (пакеты блокируются шлюзом B):
+
 ![screenshot](./screenshots/Pasted%20image%2020260310071444.png)
+
 # Глава 6. Проверка сохранения  настроек после перезагрузки
 Все три виртуальные машины были перезагружены с помощью команды sudo reboot. После перезагрузки выполнены следующие проверки:
  - IP Forwarding на Linux B активен:
+   
 	 ![screenshot](./screenshots/Pasted%20image%2020260310072821.png)
+
 - Правила iptables на Linux_B загружены:
+  
 	![screenshot](./screenshots/Pasted%20image%2020260310073001.png)
+
 - Веб-сервер на Linux_A запущен:
+  
 	![screenshot](./screenshots/Pasted%20image%2020260310073104.png)
+
 - Тестовый запрос с Linux_C на Linux_A:
+  
 	![screenshot](./screenshots/Pasted%20image%2020260310073229.png)
 	![screenshot](./screenshots/Pasted%20image%2020260310073243.png)
 	![screenshot](./screenshots/Pasted%20image%2020260310073459.png)
+
 # Глава 7. Вывод
 В ходе выполнения практической работы №1 "Базовые принципы администрирования Linux" была успешна настроена сетевая инфраструктура из трех виртуальных машин Linux. Настроен IP - адрес для сервера (А) и клиента (С), а также два статических IP для шлюза (B). С помощью iptables на шлюзе настроена маршрутизация и фильтрация трафика, разрешающая только HTTP - запросы на порт 5000 от клиента к серверу. Веб - сервер FLask был развернут на сервере и настроен для автозапуска с помощью systemd. Все настройки сохраняются после перезагрузки системы.   
 # Используемая литература:

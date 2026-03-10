@@ -71,7 +71,7 @@ ___________
 	Your server's name: orange_server
 	Pick a username: orange
 
-![[Pasted image 20260309042351.png| 200]]
+![screenshot](./screenshots/Pasted%20image%2020260309042351.png)
 ### Linux_B
 	Your name: Linux_B
 	Your server's name: orange_server_2

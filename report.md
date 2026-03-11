@@ -63,21 +63,21 @@ ___________
 	Your server's name: orange_server
 	Pick a username: orange
 
-![screenshots](./Pasted%20image%2020260309042351.png)
+![screenshots](screenshots/Pasted%20image%2020260309042351.png)
 
 ### Linux_B
 	Your name: Linux_B
 	Your server's name: orange_server_2
 	Pick a username: orange_2
 
-![screenshots](./Pasted%20image%2020260310021629.png)
+![screenshots](screenshots/Pasted%20image%2020260310021629.png)
 
 ### Linux_C
 	Your name: Linux_C
 	Your server's name: orange_server_3
 	Pick a username: orange_3
 
-![screenshots](./Pasted%20image%2020260310033946.png)
+![screenshots](screenshots/Pasted%20image%2020260310033946.png)
 
 # Глава 2. Настройка Linux A (сервер)
 _____
@@ -91,52 +91,54 @@ _____
 
 Сгенерируем ключ:
 
-![screenshot](./Pasted%20image%2020260310094948.png)
+![screenshot](screenshots/Pasted%20image%2020260310094948.png)
 
 Подставим IP:
 
-![screenshot](./Pasted%20image%2020260310095415.png)
+![screenshot](screenshots/Pasted%20image%2020260310095415.png)
 
 Конфигурация Netplan (/etc/netplan/00-installer-config.yaml):
 
-![screenshot](./Pasted%20image%2020260311073021.png)
+![screenshot](screenshots/Pasted%20image%2020260311073021.png)
 
 Проверка IP - адресов после применения netplan:
-![screenshot](./Pasted%20image%2020260311073036.png)
+
+![screenshot](screenshots/Pasted%20image%2020260311073036.png)
+
 2.3. Настройка веб-сервера (Flask):
 	Установим flask: 
 
-![screenshot](./Pasted%20image%2020260309064644.png)
+![screenshot](screenshots/Pasted%20image%2020260309064644.png)
 
 Завершена:
 
-![screenshot](./Pasted%20image%2020260309064712.png)
+![screenshot](screenshots/Pasted%20image%2020260309064712.png)
 
 Создадим директорию для http_server:
 
-![screenshot](./Pasted%20image%2020260309065357.png)
+![screenshot](screenshots/Pasted%20image%2020260309065357.png)
 
 Проверим текущую директорию с помощью команды pwd и создадим файл orange_5000.py
 
-![screenshot](./Pasted%20image%2020260309065830.png)
+![screenshot](screenshots/Pasted%20image%2020260309065830.png)
 
-![screenshot](./Pasted%20image%2020260309074957.png)
+![screenshot](screenshots/Pasted%20image%2020260309074957.png)
 
 Проверим путь к файлу flask с помощью команды which flask: 
 
-![screenshot](./Pasted%20image%2020260309081201.png)
+![screenshot](screenshots/Pasted%20image%2020260309081201.png)
 
 Создадим systemd unit файл, который будет запускать сервер автоматически при старте системы:
 
-![screenshots](./Pasted%20image%2020260310064843.png)
+![screenshots](screenshots/Pasted%20image%2020260310064843.png)
 
 Включим и запустим:
 
-![screenshots](./Pasted%20image%2020260309081451.png)
+![screenshots](screenshots/Pasted%20image%2020260309081451.png)
 
 Результат:
 
-![screenshots](./Pasted%20image%2020260309091031.png)
+![screenshots](screenshots/Pasted%20image%2020260309091031.png)
 
 # Глава 3. Настройка Linux B (шлюз)
  
@@ -151,36 +153,36 @@ _____
 	
 Отредактируем файл net-plan:
 
-![screenshot](./Pasted%20image%2020260310022655.png)
-![screenshot](./Pasted%20image%2020260310023114.png)
+![screenshot](screenshots/Pasted%20image%2020260310022655.png)
+![screenshot](screenshots/Pasted%20image%2020260310023114.png)
 
 Внесенные изменения с помощью команды netplan apply:
 
-![screenshot](./Pasted%20image%2020260311072700.png)
+![screenshot](screenshots/Pasted%20image%2020260311072700.png)
 
 Посмотрим изменения через ip a:
 
-![screenshots](./Pasted%20image%2020260311072723.png)
+![screenshots](screenshots/Pasted%20image%2020260311072723.png)
 
 3.3. Настройка маршрутизации и файрвола:
 Включение IP Forwaarding:
 
-![screenshots](./Pasted%20image%2020260310024954.png)
+![screenshots](screenshots/Pasted%20image%2020260310024954.png)
 
-![screenshots](./Pasted%20image%2020260310025033.png)
+![screenshots](screenshots/Pasted%20image%2020260310025033.png)
 
 По умолчанию запрещаем весь  пересылаемый через сервер трафик:
 
-![screenshots](./Pasted%20image%2020260310025717.png)
+![screenshots](screenshots/Pasted%20image%2020260310025717.png)
 
 Чтобы разрешить переброс только конкретных пакетов по конкретному порту, следует настроить маршрут. Проверим внесенные правила с помощью iptables -L:
 
-![screenshots](./Pasted%20image%2020260311071654.png)
+![screenshots](screenshots/Pasted%20image%2020260311071654.png)
 
 Сохраним внесенные изменения:
 
-![screenshots](./Pasted%20image%2020260310032151.png)
-![screenshots](./Pasted%20image%2020260311072937.png)
+![screenshots](screenshots/Pasted%20image%2020260310032151.png)
+![screenshots](screenshots/Pasted%20image%2020260311072937.png)
 
 # Глава 4. Настройка Linux C
 4.1. Имя хоста и пользователь
@@ -193,68 +195,68 @@ _____
 	
 Проверим текущие интерфейсы:
 
-![screenshots](./Pasted%20image%2020260311072412.png)
+![screenshots](screenshots/Pasted%20image%2020260311072412.png)
 
 Конфигурация Netplan (/etc/netplan/00-installer-config.yaml
 
-![screenshots](./Pasted%20image%2020260311072444.png)
+![screenshots](screenshots/Pasted%20image%2020260311072444.png)
 
 Проверка IP- адрессов:
 
-![screenshots](./Pasted%20image%2020260310070423.png)
+![screenshots](screenshots/Pasted%20image%2020260310070423.png)
 
 Установка curl:
 
-![screenshots](./Pasted%20image%2020260310044609.png)
+![screenshots](screenshots/Pasted%20image%2020260310044609.png)
 
 # Глава 5. Тестирование
 
 ## 5.1. Запуска tcpdump на шлюзе (Linux_B):
 
-![screenshots](./Pasted%20image%2020260310070638.png)
+![screenshots](screenshots/Pasted%20image%2020260310070638.png)
 
 ## 5.2. Отправка запросов с клиента Linux_C на сервер Linux_A
 С клиента (С) выполнены команды curl к серверу А:
 - GET:
 
-![screenshots](./Pasted%20image%2020260311072037.png)
-![screenshots](./Pasted%20image%2020260311072128.png)
+![screenshots](screenshots/Pasted%20image%2020260311072037.png)
+![screenshots](screenshots/Pasted%20image%2020260311072128.png)
 
 - POST:
 
-![screenshots](./Pasted%20image%2020260311072157.png)
-![screenshots](./Pasted%20image%2020260311072211.png)
+![screenshots](screenshots/Pasted%20image%2020260311072157.png)
+![screenshots](screenshots/Pasted%20image%2020260311072211.png)
 
 - PUT:
  
-![screenshots](./Pasted%20image%2020260311072249.png)
-![screenshots](./Pasted%20image%2020260311072240.png)
+![screenshots](screenshots/Pasted%20image%2020260311072249.png)
+![screenshots](screenshots/Pasted%20image%2020260311072240.png)
  
  
 ## 5.4. Проверка блокировки другого трафика
 Попытка выполнить ping с клиента C на сервер А была неуспешной (пакеты блокируются шлюзом B):
 
-![screenshots](./Pasted%20image%2020260310071444.png)
+![screenshots](screenshots/Pasted%20image%2020260310071444.png)
 
 # Глава 6. Проверка сохранения  настроек после перезагрузки
 Все три виртуальные машины были перезагружены с помощью команды sudo reboot. После перезагрузки выполнены следующие проверки:
 - IP Forwarding на Linux B активен:
 
-	 ![screenshots](./Pasted%20image%2020260310072821.png)
+	 ![screenshots](screenshots/Pasted%20image%2020260310072821.png)
   
 - Правила iptables на Linux_B загружены:
  
-	![screenshotss](./Pasted%20image%2020260311071654.png)
+	![screenshotss](screenshots/Pasted%20image%2020260311071654.png)
 
 - Веб-сервер на Linux_A запущен:
 
-	![screenshots](./Pasted%20image%2020260310073104.png)
+	![screenshots](screenshots/Pasted%20image%2020260310073104.png)
 
 - Тестовый запрос с Linux_C на Linux_A:
  
-	![screenshots](./Pasted%20image%2020260311071532.png)
-	![screenshots](./Pasted%20image%2020260310073243.png)
-	![screenshots](./Pasted%20image%2020260310073459.png)
+	![screenshots](screenshots/Pasted%20image%2020260311071532.png)
+	![screenshots](screenshots/Pasted%20image%2020260310073243.png)
+	![screenshots](screenshots/Pasted%20image%2020260310073459.png)
 
 # Глава 7. Вывод
 В ходе выполнения практической работы №1 "Базовые принципы администрирования Linux" была успешна настроена сетевая инфраструктура из трех виртуальных машин Linux. Настроен IP - адрес для сервера (А) и клиента (С), а также два статических IP для шлюза (B). С помощью iptables на шлюзе настроена маршрутизация и фильтрация трафика, разрешающая только HTTP - запросы на порт 5000 от клиента к серверу. Веб - сервер FLask был развернут на сервере и настроен для автозапуска с помощью systemd. Все настройки сохраняются после перезагрузки системы.   
